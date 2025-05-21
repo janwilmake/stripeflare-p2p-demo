@@ -1,0 +1,19 @@
+name = "stripeflare-p2p-demo"
+main = "index.ts"
+compatibility_date = "2025-04-17"
+
+route.custom_domain = true
+route.pattern = "p2p.stripeflare.com"
+
+[dev]
+port = 3000
+
+
+[durable_objects]
+bindings = [
+  { name = "DORM_NAMESPACE", class_name = "DORM" }
+]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["DORM"]
