@@ -739,7 +739,12 @@ export default {
     // Prepare the data to inject into HTML
     const userData = {
       currentUser,
-      users: allUsers,
+      users: allUsers
+        .map((user) => ({
+          ...user,
+          name: user.name?.split(" ")[0],
+        }))
+        .filter((x) => x.balance && x.balance > 0),
       hasPaid,
     };
 
